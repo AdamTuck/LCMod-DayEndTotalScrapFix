@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace DayEndTotalScrapFix
 {
-	[HarmonyPatch(typeof(StartOfRound), "ShipLeave")]
+	[HarmonyPatch(typeof(StartOfRound))]
 	public class ShipLeaveCalculations
     {
+		[HarmonyPatch("ShipLeave")]
 		[HarmonyPostfix]
 		public static void Postfix()
 		{
@@ -18,36 +19,31 @@ namespace DayEndTotalScrapFix
 		public static int CalculateRemainingScrapInLevel()
 		{
 			GrabbableObject[] array = Object.FindObjectsOfType<GrabbableObject>();
-			int num = 0;
+			int totalRemainingValue = 0;
+
 			for (int i = 0; i < array.Length; i++)
 			{
 				if (array[i].itemProperties.isScrap && !array[i].isInShipRoom && !array[i].isInElevator && !array[i].scrapPersistedThroughRounds)
 				{
-					num += array[i].scrapValue;
+					totalRemainingValue += array[i].scrapValue;
 				}
 			}
-			return num;
+			return totalRemainingValue;
 		}
 
 		public static int CalculateCollectedScrap()
 		{
 			GrabbableObject[] array = Object.FindObjectsOfType<GrabbableObject>();
-			int num = 0;
+			int totalCollectedValue = 0;
+
 			for (int i = 0; i < array.Length; i++)
 			{
 				if (array[i].itemProperties.isScrap && array[i].isInShipRoom && !array[i].isInElevator && !array[i].scrapPersistedThroughRounds)
 				{
-					num += array[i].scrapValue;
+					totalCollectedValue += array[i].scrapValue;
 				}
 			}
-			return num;
+			return totalCollectedValue;
 		}
-
-		public static int GetAccuratePlayerCount ()
-        {
-
-
-			return 1;
-        }
 	}
 }

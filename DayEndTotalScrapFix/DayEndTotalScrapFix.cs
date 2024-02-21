@@ -14,7 +14,7 @@ namespace DayEndTotalScrapFix
     {
         private const string modGUID = "GhostClef.DayEndTotalScrapFix";
         private const string modName = "Day End Total Scrap Fix";
-        private const string modVersion = "1.0.0.0";
+        private const string modVersion = "0.1.0.0";
         private readonly Harmony harmony = new Harmony(modGUID);
 
         public static DayEndTotalScrapFix Instance;
@@ -31,6 +31,8 @@ namespace DayEndTotalScrapFix
             mls.LogInfo(modName + " - Version: " + modVersion);
 
             harmony.PatchAll(typeof(DayEndTotalScrapFix));
+            harmony.PatchAll(typeof(ShipLeaveCalculations));
+            harmony.PatchAll(typeof(HUDManagerPatch));
         }
     }
 }
