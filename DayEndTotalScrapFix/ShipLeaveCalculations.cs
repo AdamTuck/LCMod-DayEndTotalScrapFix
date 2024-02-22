@@ -12,8 +12,11 @@ namespace DayEndTotalScrapFix
 		{
 			GlobalVariables.RemainingScrapInLevel = CalculateRemainingScrapInLevel();
 			GlobalVariables.CollectedScrap = CalculateCollectedScrap();
-			DayEndTotalScrapFix.Instance.mls.LogInfo("DayEndFix - Total Remaining Scrap In Level: " + GlobalVariables.RemainingScrapInLevel);
+			GlobalVariables.TotalScrapValueInLevel = GlobalVariables.CollectedScrap + GlobalVariables.RemainingScrapInLevel;
+
 			DayEndTotalScrapFix.Instance.mls.LogInfo("DayEndFix - Total Collected Scrap Today: " + GlobalVariables.CollectedScrap);
+			DayEndTotalScrapFix.Instance.mls.LogInfo("DayEndFix - Total Remaining Scrap In Level: " + GlobalVariables.RemainingScrapInLevel);
+			DayEndTotalScrapFix.Instance.mls.LogInfo("DayEndFix - Total Generated Scrap: " + GlobalVariables.TotalScrapValueInLevel);
 		}
 
 		public static int CalculateRemainingScrapInLevel()
