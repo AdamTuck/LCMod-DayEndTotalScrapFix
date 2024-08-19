@@ -1,0 +1,11 @@
+EOD Summary Fix
+- Show true value of scrap spawned in the level
+- Show true value of day's collected scrap
+- Show accurate rating & give correct day-end EXP
+
+
+
+IN TESTING:
+- Sometimes values aren't saved to summary screen correctly
+- Levelling up currently appears to work even when exp value is zeroed out (woo)
+- Might need to apply values at a different time? Could use some futzing

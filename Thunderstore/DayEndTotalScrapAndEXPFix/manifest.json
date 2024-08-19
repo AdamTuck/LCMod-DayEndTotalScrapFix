@@ -1,0 +1,7 @@
+{
+    "name": "DayEndTotalScrapAndEXPFix",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/AdamTuck/LCMod-DayEndTotalScrapFix",
+    "description": "Fix to accurately show collected/total scrap in the post-game summary screen, and force correct increase of EXP and employee rank.",
+    "dependencies": [ "" ]
+}
